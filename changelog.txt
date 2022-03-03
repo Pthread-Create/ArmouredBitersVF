@@ -1,0 +1,123 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 2022-02-27
+  General:
+    - Renamed "Armoured biter spawner" to "Snapper Nest" (suggested by conn11)
+  Bugs:
+    - Fixed higher percentage HP settings not applying correctly (spotted by fgfg1360)
+---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 2021-03-14
+  Bugs:
+    - Fixed a problem with mutiplayer mod settings sync
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 2021-03-06
+  Bugs:
+    - Fixed crash on load depending on new mod options regarding the new nest
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2021-03-06
+  General:
+    - Huge credit to MFerrari for this update!
+    - Added new leviathan armoured biter (you can disable it in settings by setting spawn probability to 0%)
+    - Added small area damage to behemoth and leviathan units
+    - Added separate spawner (requires you to enable the mod option)
+    - Added feature for autoplacing the new nest, requiring minimal moisture on the surface (you can disable this in settings)
+  Bugs:
+    - Fixed missing damaged_trigger_effect,walking_sound, running_sound_animation_positions values for all units
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2021-01-31
+  General:
+    - Added separate death animation function to help with compatability with other mods (credit goes to MrPlate)
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2020-11-30
+  General:
+    - Updated mod to Factorio 1.1
+    - Added 500%, 700%, 1000% settings for biter health and resistances
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2020-09-09
+  General:
+    - Added 400% option to spawn-probability settings
+    - Tweaked selection boxes a bit
+  Balancing:
+    - Further tweaked snapper resistances
+      The base resistances are now more inline with regular biters but with increased % reduction
+  Bugs:
+    - Fixed error in spawn-probability settings which didn't work as intended (problem spotted by garrotte)
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2020-08-16
+  General:
+    - Updated mod to Factorio 1.0
+  Balancing:
+    - Snapper health:
+      Medium: 400 -> 200
+      Behemoth: 5000 -> 6000
+    - Heavily reduced medium snapper resistances, especially physical
+    - Tweaked big and behemoth snapper resistances
+  Bugs:
+    - Fixed a bug that drastically reduced small snapper spawning once pollution reached medium biter levels
+---------------------------------------------------------------------------------------------------
+Version: 0.18.3
+Date: 2020-05-30
+  General:
+    - Slightly reduced sprite size to better fit the new collision size as well as increase relative sprite resolution
+  Bugs:
+    - Changed the biter collision size to fix AI issues with one-tile openings in defences (Spotted by Dragonling)
+---------------------------------------------------------------------------------------------------
+Version: 0.18.2
+Date: 2020-04-06
+  General:
+    - Added Polish translation (thanks to VrozaX)
+---------------------------------------------------------------------------------------------------
+Version: 0.18.1
+Date: 2020-02-10
+  General:
+    - Minor updates to the mod settings descriptions
+    - Added a 25% option to the spawn rate setting
+  Bugs:
+    - Typo in changelog.txt which made it impossible to see the changelog in-game (Spotted by Linver)
+    - The initial "0.18 Armoured Biters" release was incorrectly set to compatible with 0.18.0 when it should've been 0.18.4
+---------------------------------------------------------------------------------------------------
+Version: 0.18.0
+Date: 2020-02-09
+  General:
+    - Compatability with Factorio version 0.18
+    - Changed Big and Behemoth Snappers to use the biter_big sounds instead of regular
+---------------------------------------------------------------------------------------------------
+Version: 0.17.3
+Date: 2020-01-11
+  Features:
+    - Added options to configure snappers health, resistances and spawn rate (All thanks to Linver)
+  Bugs:
+    - Snappers consumed too much pollution to spawn, this is now fixed (Spotted by JD-Plays)
+---------------------------------------------------------------------------------------------------
+Version: 0.17.2
+Date: 2019-12-18
+  General:
+    - Changed the in-game name from "Armoured biters" to "Snappers"
+  Balancing:
+    - Increased the speed of the snappers in order to better keep up with the regular biters
+      Small: 0.12 -> 0.14
+      Medium: 0.1 -> 0.16
+      Big: 0.08 -> 0.18
+      Behemoth: 0.08 -> 0.20
+    - Added fire and laser resistance
+      Small: fire - 2+10%, laser - 2+10%
+      Medium: fire - 4+20%, laser - 6+15%
+      Big: fire - 6+30%, laser - 10+20%
+      Behemoth: fire - 8+40%, laser - 16+25%
+---------------------------------------------------------------------------------------------------
+Version: 0.17.1
+Date: 2019-12-16
+  Bugs:
+    - Fixed naming error which caused the mod to fail to load
+---------------------------------------------------------------------------------------------------
+Version: 0.17.0
+Date: 2019-12-07
+  General:
+    - Initial release
