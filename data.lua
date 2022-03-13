@@ -105,7 +105,7 @@ data:extend(
         {
             type = "unit",
             name = "small-armoured-biter",
-            order = "b-b-d",
+            order = "a-a-a",
             icon = "__ArmouredBiters__/graphics/icons/small-armoured-biter.png",
             icon_size = 32,
             flags = {
@@ -229,7 +229,7 @@ data:extend(
         {
             type = "unit",
             name = "medium-armoured-biter",
-            order = "b-b-d",
+            order = "a-a-b",
             icon = "__ArmouredBiters__/graphics/icons/medium-armoured-biter.png",
             icon_size = 32,
             flags = {
@@ -353,7 +353,7 @@ data:extend(
         {
             type = "unit",
             name = "big-armoured-biter",
-            order = "b-b-d",
+            order = "a-a-c",
             icon = "__ArmouredBiters__/graphics/icons/big-armoured-biter.png",
             icon_size = 32,
             flags = {
@@ -401,12 +401,22 @@ data:extend(
             },
             selection_box = {
                 {
-                    -0.7,
+                    -0.8,
                     -1.4
                 },
                 {
-                    0.7,
-                    0.3
+                    0.8,
+                    1
+                }
+            },
+            drawing_box = {
+                {
+                    -1.3,
+                    -1.5
+                },
+                {
+                    1.3,
+                    1.5
                 }
             },
             sticker_box = {
@@ -478,7 +488,7 @@ data:extend(
         {
             type = "unit",
             name = "behemoth-armoured-biter",
-            order = "b-b-d",
+            order = "a-a-d",
             icon = "__ArmouredBiters__/graphics/icons/behemoth-armoured-biter.png",
             icon_size = 32,
             flags = {
@@ -526,12 +536,22 @@ data:extend(
             },
             selection_box = {
                 {
-                    -0.9,
-                    -1.5
+                    -1,
+                    -1.6
                 },
                 {
-                    0.9,
-                    0.3
+                    1,
+                    1
+                }
+            },
+            drawing_box = {
+                {
+                    -2,
+                    -1.8
+                },
+                {
+                    2,
+                    1.8
                 }
             },
             sticker_box = {
@@ -758,7 +778,7 @@ if l_r > 0 then
             {
                 type = "unit",
                 name = "leviathan-armoured-biter",
-                order = "b-b-d",
+                order = "a-a-e",
                 icon = "__ArmouredBiters__/graphics/icons/leviathan-armoured-biter.png",
                 icon_size = 32,
                 flags = {
@@ -785,12 +805,22 @@ if l_r > 0 then
                 },
                 selection_box = {
                     {
-                        -0.9,
-                        -1.5
+                        -1,
+                        -1.8
                     },
                     {
-                        0.9,
-                        0.3
+                        1,
+                        1
+                    }
+                },
+                drawing_box = {
+                    {
+                        -2.3,
+                        -2.5
+                    },
+                    {
+                        2.3,
+                        1.8
                     }
                 },
                 sticker_box = {
@@ -862,12 +892,12 @@ if l_r > 0 then
                     icon_size = 32,
                     selection_box = {
                         {
-                            -0.8,
-                            -0.8
+                            -2.5,
+                            -1.8
                         },
                         {
-                            0.8,
-                            0.8
+                            2.5,
+                            1.8
                         }
                     },
                     selectable_in_game = false,
