@@ -1098,6 +1098,7 @@ if settings.startup["ab-enable-nest"].value then
             }
         }
     )
+    data.raw["unit-spawner"]["armoured-biter-spawner"].integration = data.raw["unit-spawner"]["biter-spawner"].integration
 else
     if biterSpawner then
         local s_r = setting_utils.getPositivePercentageOf("ab-small-armoured-biter-spawn-probability")
