@@ -3,61 +3,22 @@ local setting_utils = require("setting-utils")
 local sounds = require("__base__.prototypes.entity.sounds")
 local ab_enemy_autoplace = require("armoured-autoplace")
 
+
 small_armoured_scale = 0.5
-small_armoured_tint1 = {
-    r = 0.93,
-    g = 0.94,
-    b = 0.72,
-    a = .6
-}
-small_armoured_tint2 = {
-    r = 0.9,
-    g = 0.83,
-    b = 0.54,
-    a = 1
-}
+small_armoured_tint1 = settings.startup["ab-small-armoured-biter-color-primary"].value
+small_armoured_tint2 = settings.startup["ab-small-armoured-biter-color-secondary"].value
 
 medium_armoured_scale = 0.65
-medium_armoured_tint1 = {
-    r = 0.49,
-    g = 0.46,
-    b = 0.51,
-    a = 0.8
-}
-medium_armoured_tint2 = {
-    r = 0.93,
-    g = 0.72,
-    b = 0.72,
-    a = 1
-}
+medium_armoured_tint1 = settings.startup["ab-medium-armoured-biter-color-primary"].value
+medium_armoured_tint2 = settings.startup["ab-medium-armoured-biter-color-secondary"].value
 
 big_armoured_scale = 0.8
-big_armoured_tint1 = {
-    r = 0.53,
-    g = 0.65,
-    b = 0.90,
-    a = 0.8
-}
-big_armoured_tint2 = {
-    r = 0.56,
-    g = 0.54,
-    b = 0.98,
-    a = 1
-}
+big_armoured_tint1 = settings.startup["ab-big-armoured-biter-color-primary"].value
+big_armoured_tint2 = settings.startup["ab-big-armoured-biter-color-secondary"].value
 
 behemoth_armoured_scale = 1
-behemoth_armoured_tint1 = {
-    r = 0.41,
-    g = 0.63,
-    b = 0.40,
-    a = 1
-}
-behemoth_armoured_tint2 = {
-    r = 0.44,
-    g = 1,
-    b = 0.29,
-    a = 1
-}
+behemoth_armoured_tint1 = settings.startup["ab-behemoth-armoured-biter-color-primary"].value
+behemoth_armoured_tint2 = settings.startup["ab-behemoth-armoured-biter-color-secondary"].value
 
 local function make_biter_area_damage(damage, radius)
     return {
@@ -742,18 +703,8 @@ local leviathan_resists = {
 }
 
 local leviathan_scale = 1.25
-local leviathan_tint1 = {
-    r = 0.9,
-    g = 0.23,
-    b = 0.23,
-    a = 0.95
-}
-local leviathan_tint2 = {
-    r = 0.78,
-    g = 0.84,
-    b = 0,
-    a = 0.9
-}
+local leviathan_tint1 = settings.startup["ab-leviathan-armoured-biter-color-primary"].value
+local leviathan_tint2 = settings.startup["ab-leviathan-armoured-biter-color-secondary"].value
 
 if l_r > 0 then
     table.insert(
