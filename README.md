@@ -1,4 +1,6 @@
 # ArmouredBiters
+https://mods.factorio.com/mod/ArmouredBiters
+
 This mod adds a new type of enemy to the game called Snappers (which don't replace regular biters), they're a bit slower but have more health and resistance than regular biters. Unlike regular biters, snappers have laser resistance to make building late game defences a bit more interesting.
 They spawn at the same pollution levels as regular biters at regular biter nests, for example if the biter nest can spawn a medium biter it can also spawn a medium snapper.
 
