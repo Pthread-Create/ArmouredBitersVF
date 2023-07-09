@@ -256,7 +256,7 @@ data:extend(
         },
         {
             type = "bool-setting",
-            name = "ab-disable-moisture-check",
+            name = "ab-enable-moisture-check",
             setting_type = "startup",
             default_value = false,
             order = "n",

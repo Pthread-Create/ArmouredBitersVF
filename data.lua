@@ -871,10 +871,10 @@ end
 local biterSpawner = data.raw["unit-spawner"]["biter-spawner"]
 
 if settings.startup["ab-enable-nest"].value then
-    if settings.startup["ab-disable-moisture-check"].value then
-        ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace(0)
-    else
+    if settings.startup["ab-enable-moisture-check"].value then
         ab_enemy_autoplace = ab_enemy_autoplace.enemy_spawner_autoplace(0)
+    else
+        ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace(0)
     end
 
     local nest_tint = {
