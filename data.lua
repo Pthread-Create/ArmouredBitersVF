@@ -2,6 +2,7 @@ require("animation")
 local setting_utils = require("setting-utils")
 local sounds = require("__base__.prototypes.entity.sounds")
 local ab_enemy_autoplace = require("armoured-autoplace")
+local enemy_autoplace = require ("__base__.prototypes.entity.enemy-autoplace-utils")
 
 
 small_armoured_scale = 0.5
@@ -871,7 +872,7 @@ local biterSpawner = data.raw["unit-spawner"]["biter-spawner"]
 
 if settings.startup["ab-enable-nest"].value then
     if settings.startup["ab-disable-moisture-check"].value then
-        ab_enemy_autoplace = biterSpawner.autoplace
+        ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace(0)
     else
         ab_enemy_autoplace = ab_enemy_autoplace.enemy_spawner_autoplace(0)
     end
