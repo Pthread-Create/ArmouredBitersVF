@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.9
+Date: 2023-07-09
+  General:
+    - Reworked "Disable moisture check" into "Enable moisture check" and adjusted description to be less confusing (suggested by retep998)
+  Bugs:
+    - Fixed "Disable moisture check" accidentally replacing all biter nests with snapper nests (spotted and fixed by retep998)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.8
 Date: 2023-05-04
   General:
