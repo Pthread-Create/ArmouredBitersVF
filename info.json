@@ -7,7 +7,7 @@
     "description" : "Adds armoured enemies called Snappers to the game with custom sprites and animations. They've got more health but are slower than regular biters.",
     "dependencies" : 
 	[
-		"base >= 1.1.80",
+		"base >= 2.0",
 		"(?) alien-biomes"
 	]
 }
