@@ -1,4 +1,6 @@
-local noise = require("noise")
+------ Currently disabled ------
+
+local noise = require("enemy-autoplace-utils")
 local control_name = "enemy-base"
 local enemy_base_control_setting = noise.get_control_setting(control_name)
 

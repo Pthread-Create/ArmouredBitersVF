@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2024-10-24
+  General:
+    - Updated mod to support Factorio 2.0
+    - Changed nest spawning to be enabled by default (suggested by zinful)
+    - Added new tweaked sprite for the Snapper nests (thanks to Tserup)
+    - Disabled moisture check for Snapper nests due to changes to the noise functions in 2.0
+---------------------------------------------------------------------------------------------------
 Version: 1.1.9
 Date: 2023-07-09
   General:

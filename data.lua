@@ -1,9 +1,8 @@
 require("animation")
 local setting_utils = require("setting-utils")
 local sounds = require("__base__.prototypes.entity.sounds")
-local ab_enemy_autoplace = require("armoured-autoplace")
-local enemy_autoplace = require ("__base__.prototypes.entity.enemy-autoplace-utils")
-
+--[[ local ab_enemy_autoplace = require("armoured-autoplace") ]]
+local enemy_autoplace = require("__base__.prototypes.entity.enemy-autoplace-utils")
 
 small_armoured_scale = 0.5
 small_armoured_tint1 = settings.startup["ab-small-armoured-biter-color-primary"].value
@@ -20,6 +19,22 @@ big_armoured_tint2 = settings.startup["ab-big-armoured-biter-color-secondary"].v
 behemoth_armoured_scale = 1
 behemoth_armoured_tint1 = settings.startup["ab-behemoth-armoured-biter-color-primary"].value
 behemoth_armoured_tint2 = settings.startup["ab-behemoth-armoured-biter-color-secondary"].value
+
+local make_unit_melee_ammo_type = function(damage_value)
+    return {
+        target_type = "entity",
+        action = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                target_effects = {
+                    type = "damage",
+                    damage = {amount = damage_value, type = "physical"}
+                }
+            }
+        }
+    }
+end
 
 local function make_biter_area_damage(damage, radius)
     return {
@@ -136,6 +151,7 @@ data:extend(
                 type = "projectile",
                 range = 1.2,
                 cooldown = 80,
+                ammo_category = "melee",
                 ammo_type = make_unit_melee_ammo_type(20),
                 sound = sounds.biter_roars(0.4),
                 animation = armoredAttackBiter(small_armoured_scale, small_armoured_tint1, small_armoured_tint2)
@@ -144,7 +160,7 @@ data:extend(
             movement_speed = 0.14,
             distance_per_frame = 0.105,
             -- in pu
-            pollution_to_join_attack = 4,
+            absorptions_to_join_attack = {pollution = 4},
             corpse = "small_armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls(0.4),
@@ -260,6 +276,7 @@ data:extend(
                 type = "projectile",
                 range = 1.5,
                 cooldown = 80,
+                ammo_category = "melee",
                 ammo_type = make_unit_melee_ammo_type(40),
                 sound = sounds.biter_roars_mid(0.4),
                 animation = armoredAttackBiter(medium_armoured_scale, medium_armoured_tint1, medium_armoured_tint2)
@@ -268,7 +285,7 @@ data:extend(
             movement_speed = 0.16,
             distance_per_frame = 0.119,
             -- in pu
-            pollution_to_join_attack = 20,
+            absorptions_to_join_attack = {pollution = 20},
             corpse = "medium-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls(0.4),
@@ -395,6 +412,7 @@ data:extend(
                 type = "projectile",
                 range = 1.8,
                 cooldown = 80,
+                ammo_category = "melee",
                 ammo_type = make_unit_melee_ammo_type(80),
                 sound = sounds.biter_roars_big(0.4),
                 animation = armoredAttackBiter(big_armoured_scale, big_armoured_tint1, big_armoured_tint2)
@@ -403,7 +421,7 @@ data:extend(
             movement_speed = 0.18,
             distance_per_frame = 0.136,
             -- in pu
-            pollution_to_join_attack = 80,
+            absorptions_to_join_attack = {pollution = 80},
             corpse = "big-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls_big(0.4),
@@ -536,6 +554,7 @@ data:extend(
                     behemoth_armoured_tint1,
                     behemoth_armoured_tint2
                 ),
+                ammo_category = "melee",
                 ammo_type = {
                     category = "melee",
                     target_type = "entity",
@@ -562,7 +581,7 @@ data:extend(
             movement_speed = 0.2,
             distance_per_frame = 0.17,
             -- in pu
-            pollution_to_join_attack = 400,
+            absorptions_to_join_attack = {pollution = 400},
             corpse = "behemoth-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls_big(0.4),
@@ -794,6 +813,7 @@ if l_r > 0 then
                     cooldown = 60,
                     sound = sounds.biter_roars_behemoth(1),
                     animation = armoredAttackBiter(leviathan_scale, leviathan_tint1, leviathan_tint2),
+                    ammo_category = "melee",
                     ammo_type = {
                         category = "melee",
                         target_type = "entity",
@@ -820,7 +840,7 @@ if l_r > 0 then
                 movement_speed = 0.3,
                 distance_per_frame = 0.17,
                 -- in pu
-                pollution_to_join_attack = 1000,
+                absorptions_to_join_attack = {pollution = 1000},
                 corpse = "leviathan-armoured-corpse",
                 dying_explosion = "blood-explosion-big",
                 working_sound = sounds.biter_calls_big(1.0),
@@ -871,11 +891,12 @@ end
 local biterSpawner = data.raw["unit-spawner"]["biter-spawner"]
 
 if settings.startup["ab-enable-nest"].value then
-    if settings.startup["ab-enable-moisture-check"].value then
+    --[[ if settings.startup["ab-enable-moisture-check"].value then
         ab_enemy_autoplace = ab_enemy_autoplace.enemy_spawner_autoplace(0)
     else
         ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace(0)
-    end
+    end ]]
+    ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace("enemy_autoplace_base(0, 8)")
 
     local nest_tint = {
         r = 0.36,
@@ -973,17 +994,18 @@ if settings.startup["ab-enable-nest"].value then
                     }
                 },
                 -- in ticks per 1 pu
-                pollution_absorption_absolute = 20,
-                pollution_absorption_proportional = 0.01,
+                absorptions_per_second = {pollution = {absolute = 20, proportional = 0.01}},
                 corpse = "armoured-biter-spawner-corpse",
                 dying_explosion = "blood-explosion-huge",
                 max_count_of_owned_units = 10,
                 max_friends_around_to_spawn = 7,
-                animations = {
-                    spawner_idle_animation(0, nest_tint),
-                    spawner_idle_animation(1, nest_tint),
-                    spawner_idle_animation(2, nest_tint),
-                    spawner_idle_animation(3, nest_tint)
+                graphics_set = {
+                    animations = {
+                        armoured_spawner_idle_animation(0, nest_tint)
+                    }
+                },
+                integration = {
+                    sheet = spawner_armoured_integration()
                 },
                 result_units = result_units,
                 -- With zero evolution the spawn rate is 6 seconds, with max evolution it is 2.5 seconds
@@ -1039,18 +1061,18 @@ if settings.startup["ab-enable-nest"].value then
                 order = "c[corpse]-b[biter-spawner]",
                 final_render_layer = "remnants",
                 animation = {
-                    spawner_die_animation(0, nest_tint),
-                    spawner_die_animation(1, nest_tint),
-                    spawner_die_animation(2, nest_tint),
-                    spawner_die_animation(3, nest_tint)
+                    spawner_die_animation(1, nest_tint)
                 },
-                ground_patch = {
-                    sheet = spawner_integration()
-                }
+                decay_animation = spawner_decay_animation(1, nest_tint),
+                decay_frame_transition_duration = 6 * 60,
+                --[[ ground_patch = {
+                    sheet = spawner_armoured_integration()
+                } ]]
             }
         }
     )
-    data.raw["unit-spawner"]["armoured-biter-spawner"].integration = data.raw["unit-spawner"]["biter-spawner"].integration
+    data.raw["unit-spawner"]["armoured-biter-spawner"].integration =
+        data.raw["unit-spawner"]["biter-spawner"].integration
 else
     if biterSpawner then
         local s_r = setting_utils.getPositivePercentageOf("ab-small-armoured-biter-spawn-probability")

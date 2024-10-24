@@ -250,17 +250,19 @@ data:extend(
             type = "bool-setting",
             name = "ab-enable-nest",
             setting_type = "startup",
-            default_value = false,
+            default_value = true,
             order = "m",
             per_user = false
         },
-        {
+
+        -- Currently disabled
+        --[[ {
             type = "bool-setting",
             name = "ab-enable-moisture-check",
             setting_type = "startup",
             default_value = false,
             order = "n",
             per_user = false
-        }
+        } ]]
     }
 )
