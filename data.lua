@@ -1,7 +1,7 @@
 require("animation")
 local setting_utils = require("setting-utils")
 local sounds = require("__base__.prototypes.entity.sounds")
---[[ local ab_enemy_autoplace = require("armoured-autoplace") ]]
+local ab_enemy_autoplace = require("armoured-autoplace")
 local enemy_autoplace = require("__base__.prototypes.entity.enemy-autoplace-utils")
 
 small_armoured_scale = 0.5
@@ -84,7 +84,7 @@ data:extend(
             name = "small-armoured-biter",
             order = "a-a-a",
             icon = "__ArmouredBiters__/graphics/icons/small-armoured-biter.png",
-            icon_size = 32,
+            icon_size = 64,
             flags = {
                 "placeable-player",
                 "placeable-enemy",
@@ -160,7 +160,7 @@ data:extend(
             movement_speed = 0.14,
             distance_per_frame = 0.105,
             -- in pu
-            absorptions_to_join_attack = {pollution = 4},
+            absorptions_to_join_attack = {pollution = 10},
             corpse = "small_armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls(0.4),
@@ -181,7 +181,7 @@ data:extend(
                 type = "corpse",
                 name = "small_armoured-corpse",
                 icon = "__ArmouredBiters__/graphics/icons/small-armoured-biter.png",
-                icon_size = 32,
+                icon_size = 64,
                 selection_box = {
                     {
                         -0.8,
@@ -209,7 +209,7 @@ data:extend(
             name = "medium-armoured-biter",
             order = "a-a-b",
             icon = "__ArmouredBiters__/graphics/icons/medium-armoured-biter.png",
-            icon_size = 32,
+            icon_size = 64,
             flags = {
                 "placeable-player",
                 "placeable-enemy",
@@ -285,7 +285,7 @@ data:extend(
             movement_speed = 0.16,
             distance_per_frame = 0.119,
             -- in pu
-            absorptions_to_join_attack = {pollution = 20},
+            absorptions_to_join_attack = {pollution = 50},
             corpse = "medium-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls(0.4),
@@ -306,7 +306,7 @@ data:extend(
                 type = "corpse",
                 name = "medium-armoured-corpse",
                 icon = "__ArmouredBiters__/graphics/icons/medium-armoured-biter.png",
-                icon_size = 32,
+                icon_size = 64,
                 selection_box = {
                     {
                         -0.8,
@@ -334,7 +334,7 @@ data:extend(
             name = "big-armoured-biter",
             order = "a-a-c",
             icon = "__ArmouredBiters__/graphics/icons/big-armoured-biter.png",
-            icon_size = 32,
+            icon_size = 64,
             flags = {
                 "placeable-player",
                 "placeable-enemy",
@@ -388,16 +388,7 @@ data:extend(
                     1
                 }
             },
-            drawing_box = {
-                {
-                    -1.3,
-                    -1.5
-                },
-                {
-                    1.3,
-                    1.5
-                }
-            },
+            drawing_box_vertical_extension = 0.3,
             sticker_box = {
                 {
                     -0.6,
@@ -421,7 +412,7 @@ data:extend(
             movement_speed = 0.18,
             distance_per_frame = 0.136,
             -- in pu
-            absorptions_to_join_attack = {pollution = 80},
+            absorptions_to_join_attack = {pollution = 200},
             corpse = "big-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls_big(0.4),
@@ -442,7 +433,7 @@ data:extend(
                 type = "corpse",
                 name = "big-armoured-corpse",
                 icon = "__ArmouredBiters__/graphics/icons/big-armoured-biter.png",
-                icon_size = 32,
+                icon_size = 64,
                 selection_box = {
                     {
                         -0.8,
@@ -470,7 +461,7 @@ data:extend(
             name = "behemoth-armoured-biter",
             order = "a-a-d",
             icon = "__ArmouredBiters__/graphics/icons/behemoth-armoured-biter.png",
-            icon_size = 32,
+            icon_size = 64,
             flags = {
                 "placeable-player",
                 "placeable-enemy",
@@ -524,16 +515,7 @@ data:extend(
                     1
                 }
             },
-            drawing_box = {
-                {
-                    -2,
-                    -1.8
-                },
-                {
-                    2,
-                    1.8
-                }
-            },
+            drawing_box_vertical_extension = 0.5,
             sticker_box = {
                 {
                     -0.6,
@@ -556,7 +538,6 @@ data:extend(
                 ),
                 ammo_category = "melee",
                 ammo_type = {
-                    category = "melee",
                     target_type = "entity",
                     action = {
                         {
@@ -581,7 +562,7 @@ data:extend(
             movement_speed = 0.2,
             distance_per_frame = 0.17,
             -- in pu
-            absorptions_to_join_attack = {pollution = 400},
+            absorptions_to_join_attack = {pollution = 1000},
             corpse = "behemoth-armoured-corpse",
             dying_explosion = "blood-explosion-big",
             working_sound = sounds.biter_calls_big(0.4),
@@ -602,7 +583,7 @@ data:extend(
                 type = "corpse",
                 name = "behemoth-armoured-corpse",
                 icon = "__ArmouredBiters__/graphics/icons/behemoth-armoured-biter.png",
-                icon_size = 32,
+                icon_size = 64,
                 selection_box = {
                     {
                         -0.8,
@@ -751,7 +732,7 @@ if l_r > 0 then
                 name = "leviathan-armoured-biter",
                 order = "a-a-e",
                 icon = "__ArmouredBiters__/graphics/icons/leviathan-armoured-biter.png",
-                icon_size = 32,
+                icon_size = 64,
                 flags = {
                     "placeable-player",
                     "placeable-enemy",
@@ -784,16 +765,7 @@ if l_r > 0 then
                         1
                     }
                 },
-                drawing_box = {
-                    {
-                        -2.3,
-                        -2.5
-                    },
-                    {
-                        2.3,
-                        1.8
-                    }
-                },
+                drawing_box_vertical_extension = 0.7,
                 sticker_box = {
                     {
                         -0.6,
@@ -815,7 +787,6 @@ if l_r > 0 then
                     animation = armoredAttackBiter(leviathan_scale, leviathan_tint1, leviathan_tint2),
                     ammo_category = "melee",
                     ammo_type = {
-                        category = "melee",
                         target_type = "entity",
                         action = {
                             {
@@ -840,7 +811,7 @@ if l_r > 0 then
                 movement_speed = 0.3,
                 distance_per_frame = 0.17,
                 -- in pu
-                absorptions_to_join_attack = {pollution = 1000},
+                absorptions_to_join_attack = {pollution = 2000},
                 corpse = "leviathan-armoured-corpse",
                 dying_explosion = "blood-explosion-big",
                 working_sound = sounds.biter_calls_big(1.0),
@@ -861,7 +832,7 @@ if l_r > 0 then
                     type = "corpse",
                     name = "leviathan-armoured-corpse",
                     icon = "__ArmouredBiters__/graphics/icons/leviathan-armoured-biter.png",
-                    icon_size = 32,
+                    icon_size = 64,
                     selection_box = {
                         {
                             -2.5,
@@ -891,12 +862,8 @@ end
 local biterSpawner = data.raw["unit-spawner"]["biter-spawner"]
 
 if settings.startup["ab-enable-nest"].value then
-    --[[ if settings.startup["ab-enable-moisture-check"].value then
-        ab_enemy_autoplace = ab_enemy_autoplace.enemy_spawner_autoplace(0)
-    else
-        ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace(0)
-    end ]]
-    ab_enemy_autoplace = enemy_autoplace.enemy_spawner_autoplace("enemy_autoplace_base(0, 8)")
+    
+    ab_enemy_autoplace = Armoured_get_autoplace_base("0")
 
     local nest_tint = {
         r = 0.36,
@@ -912,7 +879,6 @@ if settings.startup["ab-enable-nest"].value then
                 name = "armoured-biter-spawner",
                 icon = "__base__/graphics/icons/biter-spawner.png",
                 icon_size = 64,
-                icon_mipmaps = 4,
                 flags = {
                     "placeable-player",
                     "placeable-enemy",
@@ -1033,7 +999,6 @@ if settings.startup["ab-enable-nest"].value then
                 },
                 icon = "__base__/graphics/icons/biter-spawner-corpse.png",
                 icon_size = 64,
-                icon_mipmaps = 4,
                 collision_box = {
                     {
                         -2,

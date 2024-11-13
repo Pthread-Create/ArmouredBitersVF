@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: ????
+  General:
+      - Removed old high-res / low-res sprites now that Factorio does the scaling automatically (only high res now)
+      - Fixed various superfluous prototype properties that were removed or changed in Factorio 2.0
+      - Re-enabled moisture check (thanks to MFerrari!)
+      - Lowered corpse lifetime to ~5 minutes (suggested by Seldion)
+  Balancing:
+      - Changed how much pollution the Snappers require to attack (suggested by Buffalo_Soldier). They now require 150% more pollution to join an attack compared to a normal biter
+  Bugs:
+      - Fixed incompatability with Creative Mod due to entity icon size, 32px vs 64px
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2024-10-24
   General:
