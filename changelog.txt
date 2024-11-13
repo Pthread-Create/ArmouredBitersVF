@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.1
-Date: ????
+Date: 2024-11-13
   General:
       - Removed old high-res / low-res sprites now that Factorio does the scaling automatically (only high res now)
       - Fixed various superfluous prototype properties that were removed or changed in Factorio 2.0
